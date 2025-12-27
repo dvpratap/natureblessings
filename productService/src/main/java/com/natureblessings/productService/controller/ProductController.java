@@ -1,6 +1,6 @@
 package com.natureblessings.productService.controller;
 
-import com.natureblessings.productService.entity.Product;
+import com.natureblessings.productService.dto.ProductDTO;
 import com.natureblessings.productService.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,17 +18,17 @@ public class ProductController {
     }
 
     @PostMapping
-    public Product createProduct(@RequestBody Product product) {
-        return productService.saveProduct(product);
+    public ProductDTO createProduct(@RequestBody ProductDTO productDTO) {
+        return productService.saveProduct(productDTO);
     }
 
     @GetMapping
-    public List<Product> getAll() {
+    public List<ProductDTO> getAll() {
         return productService.getAllProducts();
     }
 
     @GetMapping("/{id}")
-    public Product getOne(@PathVariable Long id) {
+    public ProductDTO getOne(@PathVariable Long id) {
         return productService.getProductById(id);
     }
 
